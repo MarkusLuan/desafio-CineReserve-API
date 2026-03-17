@@ -1,0 +1,6 @@
+.venv/
+build/
+dist/
+
+.env
+anotacoes.txt
