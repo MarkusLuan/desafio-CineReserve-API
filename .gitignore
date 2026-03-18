@@ -1,6 +1,7 @@
 env/
 build/
 dist/
+volumes/
 
 .env
 anotacoes.txt
