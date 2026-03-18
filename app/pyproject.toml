@@ -1,0 +1,30 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "markusluan",email = "markus23_luan@hotmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4"
+dependencies = [
+    "flask (>=3.1.3,<4.0.0)",
+    "flask-restful (>=0.3.10,<0.4.0)",
+    "flask-jwt-extended (>=4.7.1,<5.0.0)",
+    "flask-sqlalchemy (>=3.1.1,<4.0.0)",
+    "pyjwt (>=2.12.1,<3.0.0)",
+    "flask-basicauth (>=0.2.0,<0.3.0)",
+    "flask-migrate (>=4.1.0,<5.0.0)",
+    "flask-cors (>=6.0.2,<7.0.0)",
+    "python-dotenv (>=1.2.2,<2.0.0)",
+    "mysql-connector-python (>=9.6.0,<10.0.0)",
+    "redis (>=7.3.0,<8.0.0)",
+    "pytest (>=9.0.2,<10.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "app", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -6,7 +6,7 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 - [ ] ⚙️ [TC.1] Desenvolvimento da API:
     - [x] Python 3
     - [x] Webframework (Django de Preferencia) - Vou usar o Flask
-    - [ ] Poetry (Desconheço, mas vamos para o desafio)
+    - [x] Poetry (Desconheço, mas vamos para o desafio)
 - [ ] 🔐 [TC.2] Autenticação:
     - [ ] JWT 
 - [ ] 💽 [TC.3.1] Banco de Dados:
