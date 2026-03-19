@@ -21,4 +21,5 @@ jobs:
         poetry install --with dev
     - name: Analisar o código com pylint
       run: |
+        cd app
         poetry run pylint $(git ls-files '*.py')

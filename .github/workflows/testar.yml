@@ -19,4 +19,5 @@ jobs:
         poetry install --with dev
     - name: Executando testes
       run: |
+        cd app
         poetry run pytest
