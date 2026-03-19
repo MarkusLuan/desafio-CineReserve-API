@@ -32,8 +32,8 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
     - [ ] Proteja os endpoint usando as melhores práticas (Validação de inputs, prevenção de SQL Injection e proteção CSRF)
 - [ ] 🔁 Asynchronous Tasks:
     - [ ] Use Celery (ou agendador de tarefas similar) para gerenciar processos em segundo plano, auto liberação de filas e envio de e-mails de confirmação.
-- [ ] 🚀 CI/CD:
-    - [ ] Configure um sistema basico de CI/CD (Github Actions, GitLab CI/CD, travis CI ou algo parecido) para rodar testes automaticos em todos os push's
+- [x] 🚀 CI/CD:
+    - [x] Configure um sistema basico de CI/CD (Github Actions, GitLab CI/CD, travis CI ou algo parecido) para rodar testes automaticos em todos os push's
 
 ## 👨🏼‍🏫 USE CASES
 Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema chama-se "Cinépolis Natal". O software deverá usar as seguintes API's:
