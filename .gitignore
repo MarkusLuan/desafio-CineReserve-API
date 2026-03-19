@@ -8,3 +8,5 @@ volumes/
 .env
 anotacoes.txt
 *.bak
+*.lock
+.coverage
