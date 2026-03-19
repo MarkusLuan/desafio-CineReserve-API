@@ -1,6 +1,9 @@
 from flask import Flask
 
+from .error_handler import ErrorHandler
+
 app = Flask("CineReserve")
+ErrorHandler(app)
 
 def main():
     app.run(
