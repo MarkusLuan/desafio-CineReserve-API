@@ -9,4 +9,3 @@ flask-cors
 python-dotenv
 mysql-connector-python
 redis
-pytest
