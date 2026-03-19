@@ -4,8 +4,6 @@ on: [push]
 
 jobs:
   pylint:
-    # TODO: Remover após começar os códigos
-    if: false
     
     runs-on: ubuntu-latest
     steps:
