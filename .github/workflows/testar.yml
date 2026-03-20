@@ -4,19 +4,22 @@ on: [push]
 
 jobs:
   testando:
+
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Configurando o Python 3
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v6
       with:
-        python-version: "3.12"
+        python-version: "3.14"
     - name: Instalando dependencias
       run: |
         cd app
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
+        pip install poetry
+        poetry install --with dev
     - name: Executando testes
       run: |
-        pytest
+        cd app
+        poetry run migrate --config test
+        poetry run pytest

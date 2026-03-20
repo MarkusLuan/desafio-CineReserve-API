@@ -5,7 +5,6 @@ description = ""
 authors = [
     {name = "markusluan",email = "markus23_luan@hotmail.com"}
 ]
-readme = "README.md"
 requires-python = ">=3.12,<4"
 dependencies = [
     "flask (>=3.1.3,<4.0.0)",
@@ -19,12 +18,31 @@ dependencies = [
     "python-dotenv (>=1.2.2,<2.0.0)",
     "mysql-connector-python (>=9.6.0,<10.0.0)",
     "redis (>=7.3.0,<8.0.0)",
-    "pytest (>=9.0.2,<10.0.0)"
 ]
 
 [tool.poetry]
 packages = [{include = "app", from = "src"}]
 
+[tool.poetry.scripts]
+server = "app.server:main"
+migrate = "app.migrate:main"
+
+[tool.pylint]
+fail-under = 7.5
+
+[tool.pylint."messages control"]
+disable = [
+    "missing-docstring",
+    "invalid-name"
+]
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.2,<10.0.0)",
+    "pylint (>=4.0.5,<5.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)"
+]

@@ -1,3 +1,5 @@
+.pytest_cache/
+__pycache__
 env/
 build/
 dist/
@@ -5,3 +7,6 @@ volumes/
 
 .env
 anotacoes.txt
+*.bak
+*.lock
+.coverage
