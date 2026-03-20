@@ -1,5 +1,6 @@
 import argparse
 import random
+import json
 
 from . import server
 
@@ -10,23 +11,21 @@ from app.app_singleton import db
 def seed(_config_object: str):
     _app = server.create_app(_config_object)
 
-    filmes = [
-        Filme (
-            ano_lancamento = 2007,
-            nome = "Hora do Rush 3",
-            descricao = "Terceiro filme de comédia, envolvendo dois policiais totalmente desastrados",
-            idade_min = 18,
-            genero = GeneroEnum.COMEDIA
-        )
-    ]
+    filmes = []
+    with open("movies.json", "r", encoding="utf-8") as f:
+        j = json.load(f)
+
+        for r in j:
+            r["genero"] = GeneroEnum[r["genero"]]
+            filmes.append(Filme(**r))
 
     # Gerar sessões aleatórias
     sessoes = []
-    for a in range(0, 500):
+    for a in range(0, 2000):
         sessao = Sessao(
             dt_sessao = f'2026-{random.randint(3, 12)}-{random.randint(1, 30)}',
             quant_assentos = random.randint(20, 150),
-            filme_id = 1
+            filme_id = random.randint(1, len(filmes))
         )
 
         sessoes.append(sessao)

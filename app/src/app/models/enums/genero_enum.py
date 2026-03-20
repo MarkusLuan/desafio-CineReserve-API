@@ -13,3 +13,4 @@ class GeneroEnum (AbstractEnum):
     ROMANCE = (8)
     TERROR = (9)
     MUSICAL = (10)
+    INFANTIL = (11)
