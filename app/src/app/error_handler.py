@@ -1,3 +1,5 @@
+# pylint: disable=unused-argument
+
 from flask import Flask, request
 from flask import make_response
 from werkzeug.exceptions import HTTPException

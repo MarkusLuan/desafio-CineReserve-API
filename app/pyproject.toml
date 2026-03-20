@@ -29,7 +29,8 @@ migrate = "app.migrate:main"
 
 [tool.pylint."messages control"]
 disable = [
-    "missing-docstring"
+    "missing-docstring",
+    "invalid-name"
 ]
 
 [build-system]

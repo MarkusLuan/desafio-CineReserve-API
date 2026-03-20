@@ -20,4 +20,3 @@ class Filme (AbstractModel):
     def capa(self):
         # TODO: Implementar para devolver a url da imagem
         return ""
-

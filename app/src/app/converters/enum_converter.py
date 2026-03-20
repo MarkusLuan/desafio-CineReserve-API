@@ -1,3 +1,5 @@
+# pylint: disable=abstract-method
+
 from ..models.enums.abstract_enum import AbstractEnum
 
 from typing import TypeVar, Generic, Type
