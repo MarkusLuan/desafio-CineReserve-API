@@ -1,3 +1,6 @@
+# pylint: disable=wildcard-import
+# pylint: disable=unused-wildcard-import
+
 from .base import *
 
 BASIC_AUTH_PASSWORD = 'A3uUWjC2759429'

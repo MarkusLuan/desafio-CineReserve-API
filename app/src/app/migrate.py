@@ -1,8 +1,8 @@
+import argparse
+
 from . import server
 from . import app_singleton
-from . import models
-
-import argparse
+from . import models # pylint: disable=unused-import
 
 def migrate(_config_object: str):
     _app = server.create_app(_config_object)
