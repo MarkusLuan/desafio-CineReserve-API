@@ -22,7 +22,9 @@ class EnumConverter (TypeDecorator, Generic[ENUM_CLASS]):
     def process_bind_param(self, value: ENUM_CLASS | None, dialect: Dialect) -> int | None:
         if value:
             return value.ordinal
+        return None
     
     def process_result_value(self, value: int | None, dialect: Dialect) -> ENUM_CLASS | None:
         if value:
             return self.ordinal_map[value]
+        return None
