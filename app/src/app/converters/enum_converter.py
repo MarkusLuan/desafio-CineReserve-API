@@ -1,11 +1,11 @@
 # pylint: disable=abstract-method
 
-from ..models.enums.abstract_enum import AbstractEnum
-
 from typing import TypeVar, Generic, Type
 
 from sqlalchemy import Dialect
 from sqlalchemy.types import TypeDecorator, Integer
+
+from ..models.enums.abstract_enum import AbstractEnum
 
 ENUM_CLASS = TypeVar("ENUM_CLASS", bound=AbstractEnum)
 
