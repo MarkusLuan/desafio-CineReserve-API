@@ -27,6 +27,11 @@ packages = [{include = "app", from = "src"}]
 server = "app.server:main"
 migrate = "app.migrate:main"
 
+[tool.pylint."messages control"]
+disable = [
+    "missing-docstring"
+]
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
