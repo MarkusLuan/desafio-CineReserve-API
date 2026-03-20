@@ -15,5 +15,5 @@ class Ingresso (AbstractModel):
     sessao_id = db.Column(db.Integer, db.ForeignKey("Sessoes.id"), nullable=False)
     usuario_id = db.Column(db.Integer, db.ForeignKey("Usuarios.id"), nullable=False)
 
-    sessao = db.relationship("Sessoes")
-    usuario = db.relationship("Usuarios")
+    sessao = db.relationship("Sessao")
+    usuario = db.relationship("Usuario")

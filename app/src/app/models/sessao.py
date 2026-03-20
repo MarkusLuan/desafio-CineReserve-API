@@ -8,6 +8,6 @@ class Sessao (AbstractModel):
 
     dt_sessao = db.Column(db.DateTime, nullable=False)
     quant_assentos = db.Column(db.Integer, default=0, nullable=False)
-    filme_id = db.Column(db.Integer, db.ForeignKey("Usuarios.id"), nullable=False)
+    filme_id = db.Column(db.Integer, db.ForeignKey("Filmes.id"), nullable=False)
 
-    filme = db.relationship("Filmes")
+    filme = db.relationship("Filme")
