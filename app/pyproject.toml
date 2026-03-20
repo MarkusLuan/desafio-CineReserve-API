@@ -26,6 +26,7 @@ packages = [{include = "app", from = "src"}]
 [tool.poetry.scripts]
 server = "app.server:main"
 migrate = "app.migrate:main"
+seed = "app.seeds:main"
 
 [tool.pylint]
 fail-under = 7.5
