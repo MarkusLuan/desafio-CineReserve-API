@@ -6,7 +6,7 @@ from ..app_singleton import db
 
 class Filme (AbstractModel):
     __tablename__ = "Filmes"
-    fields = ["dt_lancamento, nome, descricao"]
+    fields = ["dt_lancamento, nome, descricao, idade_min, genero, capa"]
 
     dt_lancamento = db.Column(db.Date, nullable=False)
     nome = db.Column(db.String(250), nullable=False)
@@ -19,5 +19,5 @@ class Filme (AbstractModel):
     @property
     def capa(self):
         # TODO: Implementar para devolver a url da imagem
-        return None
+        return ""
 
