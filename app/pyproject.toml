@@ -24,7 +24,8 @@ dependencies = [
 packages = [{include = "app", from = "src"}]
 
 [tool.poetry.scripts]
-server = "app.main:main"
+server = "app.server:main"
+migrate = "app.migrate:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

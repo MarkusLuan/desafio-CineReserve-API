@@ -21,4 +21,5 @@ jobs:
     - name: Executando testes
       run: |
         cd app
+        poetry run migrate --config test
         poetry run pytest
