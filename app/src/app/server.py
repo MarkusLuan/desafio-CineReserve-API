@@ -2,11 +2,13 @@ from flask import Flask
 
 from .error_handler import ErrorHandler
 from .resources import resources
+from .converters import JsonConverter
 from . import app_singleton
 
 def create_app(config_variante: str="dev"):
     _app = Flask("CineReserve")
     _app.config.from_object(f"app.config.{config_variante}")
+    _app.json = JsonConverter(_app)
     ErrorHandler(_app)
 
     db_config = _app.config.get("DATABASE")

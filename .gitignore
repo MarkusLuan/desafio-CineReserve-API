@@ -10,3 +10,4 @@ anotacoes.txt
 *.bak
 *.lock
 .coverage
+mock.db

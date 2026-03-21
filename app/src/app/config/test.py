@@ -9,7 +9,7 @@ JWT_SECRET_KEY = f"{SECRET_KEY}.6oanDb619zfM32hrbhpdrUt"
 
 DATABASE =  {
     'ENGINE': 'sqlite',
-    'NAME': ':memory:'
+    'NAME': 'mock.db'
 }
 
 DEBUG = False

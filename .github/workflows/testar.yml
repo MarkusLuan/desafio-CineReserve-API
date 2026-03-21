@@ -22,4 +22,5 @@ jobs:
       run: |
         cd app
         poetry run migrate --config test
+        poetry run seed --config test
         poetry run pytest
