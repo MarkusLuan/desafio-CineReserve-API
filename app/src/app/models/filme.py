@@ -6,7 +6,7 @@ from ..app_singleton import db
 
 class Filme (AbstractModel):
     __tablename__ = "Filmes"
-    fields = ["dt_lancamento, nome, descricao, idade_min, genero, capa"]
+    fields = ["dt_lancamento", "nome", "descricao", "idade_min", "genero", "capa"]
 
     dt_lancamento = db.Column(db.DateTime, nullable=False)
     nome = db.Column(db.String(250), nullable=False)
