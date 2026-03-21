@@ -43,18 +43,18 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - [ ] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
 - [x] CASE 2: Listar todos os filmes disponiveis
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
-- [ ] CASE 3: Listar todas as sessões disponiveis para um filme especifico
+- [x] CASE 3: Listar todas as sessões disponiveis para um filme especifico
     - Um usuário (autenticado ou não) poderá ver a lista de sessões disponiveis para um filme especifico
 - [ ] CASE 4: Visualização do Mapa de Assentos por sessão
     - [ ] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.
-    - [ ] Todos os ingressos são grátis
+    - Todos os ingressos são grátis
 - [ ] CASE 5: Reservas e Bloqueios por sessão
     - [ ] Ao selecionar um assento, o sistema deverá disparar um bloqueio temporário (exemplo, um limite de 10 minutos)
     - [ ] Prevenir outros usuários de selecionar o mesmo assento durante o processo
     - [ ] Observação: Candidatos Full-time devem implementar isso usando Redis; Trainees podem usar uma abordagem mais simples em nível de DB, se preferir.
 - [ ] CASE 6: Pagamento e Geração de Ticket
     - [ ] O sistema processa o pedido e transita a reserva de um cache temporário para um registro permanente no banco de dados (se for um candidato Full-time)
-    - [ ] Aqui não existe o processo de pagamento. Todos os ingressos são grátis.
+    - Aqui não existe o processo de pagamento. Todos os ingressos são grátis.
     - [ ] Um único ingresso digital é gerado e linkado à conta do usuário.
 - [ ] CASE 7: Portal de "Meus Ingressos"
     - [ ] Usuários autenticados podem visualizar todos os seus ingressos que comprou

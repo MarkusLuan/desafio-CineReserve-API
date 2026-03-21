@@ -14,12 +14,14 @@ class AbstractModel (db.Model):
         super().__init__(*args, **kwargs)
     
     def as_dict(self):
+        """ Função para Serrializar Models """
+
         j = {
             "uuid": self.uuid
         }
 
         for field in self.fields:
-            if "." in field:
+            if "." in field: # Encapsula os campos (exemplo: 'filme.uuid' vira {'filme': {'uuid': {}}})
                 sub_fields = field.split(".")
                 
                 index_field = 0
@@ -28,7 +30,8 @@ class AbstractModel (db.Model):
                 for sf in sub_fields:
                     sub_field = sub_field.__getattribute__(sf)
 
-                    sub_j[sf] = {}
+                    if sf not in sub_j:
+                        sub_j[sf] = {}
                     if index_field == len(sub_fields) -1:
                         sub_j[sf] = sub_field
 
