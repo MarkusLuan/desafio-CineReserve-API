@@ -41,7 +41,7 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
 - [ ] CASE 1: Registro e Login
     - [ ] Usuarios devem ser capazes de se cadastrar através da API, fornecendo e-mail, usuário e senha
     - [ ] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
-- [ ] CASE 2: Listar todos os filmes disponiveis
+- [x] CASE 2: Listar todos os filmes disponiveis
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
 - [ ] CASE 3: Listar todas as sessões disponiveis para um filme especifico
     - Um usuário (autenticado ou não) poderá ver a lista de sessões disponiveis para um filme especifico
