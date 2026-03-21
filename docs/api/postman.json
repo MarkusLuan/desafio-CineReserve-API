@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "eddf2242-4862-4859-832a-8b4c0e997753",
+		"name": "Desafio B2Bit - 2026.01 - Backend - CineReserve",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10067182"
+	},
+	"item": [
+		{
+			"name": "Sessões",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&uuid_filme=a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"sessoes"
+					],
+					"query": [
+						{
+							"key": "first_result",
+							"value": "0"
+						},
+						{
+							"key": "max_results",
+							"value": "200"
+						},
+						{
+							"key": "uuid_filme",
+							"value": "a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"key": "port",
+			"value": "82"
+		}
+	]
+}
