@@ -1,8 +1,6 @@
 from flask import Blueprint
 
-from .filme_resource import resources as FilmeResource
-from .sessao_resource import resources as SessaoResource
+from .api_resource import resources as ApiResource
 
-resources = Blueprint("resources", "resources")
-resources.register_blueprint(FilmeResource)
-resources.register_blueprint(SessaoResource)
+resources = Blueprint("resources", __name__)
+resources.register_blueprint(ApiResource)
