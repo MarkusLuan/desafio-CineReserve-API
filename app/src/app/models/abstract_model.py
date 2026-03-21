@@ -19,6 +19,22 @@ class AbstractModel (db.Model):
         }
 
         for field in self.fields:
-            j[field] = self.__getattribute__(field)
+            if "." in field:
+                sub_fields = field.split(".")
+                
+                index_field = 0
+                sub_j = j
+                sub_field = self
+                for sf in sub_fields:
+                    sub_field = sub_field.__getattribute__(sf)
+
+                    sub_j[sf] = {}
+                    if index_field == len(sub_fields) -1:
+                        sub_j[sf] = sub_field
+
+                    sub_j = sub_j[sf]
+                    index_field += 1
+            else:
+                j[field] = self.__getattribute__(field)
 
         return j
