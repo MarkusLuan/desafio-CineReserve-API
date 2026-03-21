@@ -1,7 +1,7 @@
 import pytest
 
 from src.app.models.filters.filme_filter import FilmeFilter
-from src.app.exceptions import SqlInjectionException
+from src.app.exceptions import SqlInjectionException, TipoInvalidoException
 
 class TestFilters:
     def test_devera_retornar_erro_tentativa_sql_injection(self):
@@ -15,7 +15,7 @@ class TestFilters:
             })
     
     def test_devera_retornar_erro_tipo_invalido(self):
-        with pytest.raises(Exception) as r:
+        with pytest.raises(TipoInvalidoException) as r:
             f = FilmeFilter(**{
                 "titulo": 1234
             })

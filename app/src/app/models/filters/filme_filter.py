@@ -9,7 +9,7 @@ from ..dto_input import DTOInput
 
 class FilmeFilter (AbstractFilter):
     titulo = DTOInput("titulo", str, "")
-    genero = DTOInput("genero", GeneroEnum|None, None)
+    genero = DTOInput("genero", GeneroEnum, None)
     ano_lancamento = DTOInput("ano_lancamento", int, 0)
 
     def make_filter(self, query: Query) -> Query:
