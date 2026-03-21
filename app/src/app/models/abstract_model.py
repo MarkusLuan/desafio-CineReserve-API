@@ -9,9 +9,6 @@ class AbstractModel (db.Model):
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     uuid = db.Column(db.String(36), default=lambda: str(uuid4()), unique=True, nullable=False)
-
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
     
     def as_dict(self):
         """ Função para Serrializar Models """

@@ -1,3 +1,4 @@
+import datetime
 import re
 import enum
 import uuid
@@ -36,6 +37,8 @@ class DTOInput (Generic[T]):
                 v = str(value)
                 if self.tipo == int and v.isdigit():
                     value = int(v)
+                elif self.tipo == datetime.datetime:
+                    value = datetime.datetime.fromisoformat(value)
                 elif self.tipo == uuid.UUID:
                     value = uuid.UUID(v)
                 elif self.tipo == str:

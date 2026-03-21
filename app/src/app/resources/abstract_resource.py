@@ -13,7 +13,7 @@ class AbstractResource (Rest.Resource):
         return jsonify(res)
     
     def post (self):
-        return {}
+        raise NotImplementedError()
     
     def dispatch_request(self, *args, **kwargs):
         if not self.methods or (request.method not in self.methods):
