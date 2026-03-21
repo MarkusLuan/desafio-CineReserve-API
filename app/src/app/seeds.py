@@ -1,4 +1,5 @@
 import argparse
+import datetime
 import random
 import json
 
@@ -17,13 +18,14 @@ def seed(_config_object: str):
 
         for r in j:
             r["genero"] = GeneroEnum[r["genero"]]
+            r["dt_lancamento"] = datetime.datetime.fromisoformat(r["dt_lancamento"])
             filmes.append(Filme(**r))
 
     # Gerar sessões aleatórias
     sessoes = []
     for a in range(0, 2000):
         sessao = Sessao(
-            dt_sessao = f'2026-{random.randint(3, 12)}-{random.randint(1, 30)}',
+            dt_sessao = datetime.datetime.fromisoformat(f"2026-{'{:02}'.format(random.randint(3, 12))}-{'{:02}'.format(random.randint(1, 30))}"),
             quant_assentos = random.randint(20, 150),
             filme_id = random.randint(1, len(filmes))
         )
