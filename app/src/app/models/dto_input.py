@@ -1,10 +1,10 @@
 import datetime
-import re
 import enum
 import uuid
 from typing import Type, TypeVar, Generic
 
-from ..exceptions import SqlInjectionException, TipoInvalidoException, ParametroObrigatorioException
+from ..exceptions import TipoInvalidoException, ParametroObrigatorioException
+from ..utils import validador_utils
 
 T = TypeVar("T")
 
@@ -23,9 +23,7 @@ class DTOInput (Generic[T]):
         self.is_obrigatorio = is_obrigatorio
 
     def verificar_dado (self, value: T):
-        pattern = re.compile(r"(select|delete|create|drop|truncate|update)|([;\*])")
-        if pattern.findall(str(value).lower()):
-            raise SqlInjectionException()
+        validador_utils.check_SQL_Injection(value)
         
         try:
             if value is None:

@@ -6,6 +6,7 @@ from ..repositories.abstract_repository import AbstractRepository
 class AbstractResource (Rest.Resource):
     repository = AbstractRepository()
     methods = []
+    post_fields = []
 
     def get (self):
         args = request.args
