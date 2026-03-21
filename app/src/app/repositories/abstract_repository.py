@@ -1,23 +1,28 @@
 from abc import ABC
 
 from ..models.abstract_model import AbstractModel
-from ..models import Paginacao
+from ..models.filters import PaginacaoFilter
 from .. import app_singleton
 
 class AbstractRepository (ABC):
     model = AbstractModel
+    dto_filters = []
+    joins = []
+    is_paginate = True
+
+    def __init__(self):
+        if self.is_paginate:
+            self.dto_filters.append(PaginacaoFilter)
 
     def get(self, *args, **kwargs):
-        paginacao = Paginacao(
-            first_result = int(kwargs.get("first_result", 0)),
-            max_results = int(kwargs.get("max_results", 20))
-        )
-        
         session = app_singleton.db.session
         query = session.query(self.model)
 
-        query = query.offset(paginacao.first_result)
-        if paginacao.max_results > 0:
-            query = query.limit(paginacao.max_results)
+        for join in self.joins:
+            query = query.join(join)
+
+        for dto_filter_cls in self.dto_filters:
+            dto_filter = dto_filter_cls(**kwargs)
+            query = dto_filter.make_filter(query)
         
         return query.all()
