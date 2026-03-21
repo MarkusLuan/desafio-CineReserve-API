@@ -43,7 +43,7 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - [ ] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
 - [x] CASE 2: Listar todos os filmes disponiveis
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
-- [ ] CASE 3: Listar todas as sessões disponiveis para um filme especifico
+- [x] CASE 3: Listar todas as sessões disponiveis para um filme especifico
     - Um usuário (autenticado ou não) poderá ver a lista de sessões disponiveis para um filme especifico
 - [ ] CASE 4: Visualização do Mapa de Assentos por sessão
     - [ ] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.

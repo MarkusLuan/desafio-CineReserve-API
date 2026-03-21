@@ -6,11 +6,20 @@ from .. import app_singleton
 
 class AbstractRepository (ABC):
     model = AbstractModel
-    dto_filters = [ PaginacaoFilter ]
+    dto_filters = []
+    joins = []
+    is_paginate = True
+
+    def __init__(self):
+        if self.is_paginate:
+            self.dto_filters.append(PaginacaoFilter)
 
     def get(self, *args, **kwargs):
         session = app_singleton.db.session
         query = session.query(self.model)
+
+        for join in self.joins:
+            query = query.join(join)
 
         for dto_filter_cls in self.dto_filters:
             dto_filter = dto_filter_cls(**kwargs)

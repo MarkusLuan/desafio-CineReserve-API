@@ -1,8 +1,9 @@
 import re
 import enum
+import uuid
 from typing import Type, TypeVar, Generic
 
-from ..exceptions import SqlInjectionException, TipoInvalidoException
+from ..exceptions import SqlInjectionException, TipoInvalidoException, ParametroObrigatorioException
 
 T = TypeVar("T")
 
@@ -23,17 +24,27 @@ class DTOInput (Generic[T]):
         if pattern.findall(str(value).lower()):
             raise SqlInjectionException()
         
-        if not isinstance(value, self.tipo):
-            v = str(value)
-            if self.tipo == int and v.isdigit():
-                value = int(v)
-            elif self.tipo == str:
-                value = str(v)
-            elif issubclass(self.tipo, enum.Enum):
-                value = self.tipo[v]
-            else:
-                raise TipoInvalidoException(self.tipo, type(value))
+        try:
+            if not isinstance(value, self.tipo):
+                v = str(value)
+                if self.tipo == int and v.isdigit():
+                    value = int(v)
+                elif self.tipo == uuid.UUID:
+                    value = uuid.UUID(v)
+                elif self.tipo == str:
+                    value = str(v)
+                elif issubclass(self.tipo, enum.Enum):
+                    value = self.tipo[v]
+                elif value is None:
+                    raise ParametroObrigatorioException(self.chave)
+                else:
+                    raise TipoInvalidoException(self.tipo, type(value))
+        except Exception as e:
+            raise TipoInvalidoException(self.tipo, type(value)) from e
         return value
+    
+    def __bool__(self):
+        return bool(self.valor)
 
     @property
     def valor(self):

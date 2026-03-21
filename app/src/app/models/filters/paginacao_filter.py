@@ -5,7 +5,7 @@ from ..dto_input import DTOInput
 
 class PaginacaoFilter (AbstractFilter):
     first_result = DTOInput("first_result", int, 0)
-    max_results = DTOInput("max_results", int, 0)
+    max_results = DTOInput("max_results", int, 20)
 
     def make_filter(self, query: Query):
         query = query.offset(self.first_result.valor)
