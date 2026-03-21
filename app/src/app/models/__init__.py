@@ -1,5 +1,4 @@
 from . import enums
-from .paginacao import Paginacao
 
 from .usuario import Usuario
 from .filme import Filme

@@ -10,8 +10,8 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 - [ ] 🔐 [TC.2] Autenticação:
     - [ ] JWT 
 - [ ] 💽 [TC.3.1] Banco de Dados:
-    - [ ] DB Relacional (PostgreSQL de preferencia) - Vou usar o MySQL
-    - [ ] Garantir que o banco siga as melhores praticas, com atenção a normalização e otimização
+    - [x] DB Relacional (PostgreSQL de preferencia) - Vou usar o MySQL
+    - [x] Garantir que o banco siga as melhores praticas, com atenção a normalização e otimização
 - [ ] 🔋 [TC.3.2] Caching & Scalability:
     - [ ] Use estrategias de cache, por exemplo o Redis, para guardar sessões populares e disponibilizar um endpoint de alta performance sobre muita demanda
 - [ ] 📄 [TC.4.] Paginação:
@@ -29,7 +29,7 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 ## 🌟 BONUS POINTS
 - [ ] 👮🏻 Advanced Security Features:
     - [ ] Implemente limitação de requisições nos endpoints da API para prevenir abuso e extração de dados
-    - [ ] Proteja os endpoint usando as melhores práticas (Validação de inputs, prevenção de SQL Injection e proteção CSRF)
+    - [-] Proteja os endpoint usando as melhores práticas (Validação de inputs, prevenção de SQL Injection e proteção CSRF)
 - [ ] 🔁 Asynchronous Tasks:
     - [ ] Use Celery (ou agendador de tarefas similar) para gerenciar processos em segundo plano, auto liberação de filas e envio de e-mails de confirmação.
 - [x] 🚀 CI/CD:
@@ -43,7 +43,7 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - [ ] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
 - [x] CASE 2: Listar todos os filmes disponiveis
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
-- [x] CASE 3: Listar todas as sessões disponiveis para um filme especifico
+- [ ] CASE 3: Listar todas as sessões disponiveis para um filme especifico
     - Um usuário (autenticado ou não) poderá ver a lista de sessões disponiveis para um filme especifico
 - [ ] CASE 4: Visualização do Mapa de Assentos por sessão
     - [ ] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.
