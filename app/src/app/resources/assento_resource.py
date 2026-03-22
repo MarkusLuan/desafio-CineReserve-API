@@ -2,7 +2,8 @@ import datetime
 import uuid
 import random
 
-from flask import Blueprint, request, jsonify
+import redis
+from flask import Blueprint, request, jsonify, abort
 import flask_jwt_extended as jwt
 
 from ..models.enums import StatusAssentoEnum
@@ -15,6 +16,8 @@ resources = Blueprint("assentos", __name__, url_prefix="/assentos")
 repository = IngressoRepository()
 usuario_repository = UsuarioRepository()
 sessao_repository = SessaoRepository()
+
+redis_cli = redis.Redis(host="localhost", port=6379, db=0)
 
 @resources.before_request
 @jwt.jwt_required()
@@ -29,25 +32,39 @@ def listar_assentos(uuid_sessao: uuid.UUID):
 
 @resources.route("/<uuid:uuid_sessao>/<int:indice_assento>", methods=["GET"])
 def selecionar_assento(uuid_sessao: uuid.UUID, indice_assento: int):
-    return "ok"
+    usuario = usuario_repository.get_logged_user()
+    if not usuario:
+        return abort(401)
+    
+    if not repository.is_assento_disponivel (uuid_sessao, indice_assento):
+        raise Exception ("O assento já está ocupado!")
+
+    sessao = sessao_repository.get_by_uuid(uuid_sessao)
+    if not sessao:
+        return abort(404)
+
+    pre_reserva = redis_cli.set(repository.key_reserva(uuid_sessao, indice_assento), str(usuario.uuid), ex=10*60, nx=True)
+    if pre_reserva:
+        return jsonify({
+            "erro": False,
+            "texto": "Reservado com sucesso!"
+        })
+    else:
+        raise Exception ("O assento já está reservado!")
 
 @resources.route("/<uuid:uuid_sessao>/<int:indice_assento>", methods=["POST"])
 def reservar_assento(uuid_sessao: uuid.UUID, indice_assento: int):
     if not repository.is_assento_disponivel (uuid_sessao, indice_assento):
         raise Exception ("O assento já está ocupado!")
 
-    session = app_singleton.db.session
-    query = session.query(Sessao)
-    query = query.filter(Sessao.uuid == str(uuid_sessao))
-    sessao = query.first()
+    sessao = sessao_repository.get_by_uuid(uuid_sessao)
     if not sessao:
-        raise Exception ("Sessão de Filme invalida!")
+        return abort(404)
     sessao_id = sessao.id
-    session.close()
     
     usuario = usuario_repository.get_logged_user()
     if not usuario:
-        raise Exception ("Usuário inválido!")
+        raise abort(401)
     usuario_id = usuario.id
 
     ingresso = Ingresso(

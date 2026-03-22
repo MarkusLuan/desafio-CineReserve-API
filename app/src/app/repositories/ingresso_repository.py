@@ -41,6 +41,9 @@ class IngressoRepository (AbstractRepository [Ingresso]):
             res.append(f"{inicio_sequencia}-{anterior}")
         
         return res
+    
+    def key_reserva (self, uuid_sessao: uuid.UUID, assento: int):
+        return f"s:{uuid_sessao}:a:{assento}"
 
     def get_meus_ingressos(self, usuario: Usuario):
         session = app_singleton.db.session

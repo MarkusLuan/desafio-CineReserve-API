@@ -48,10 +48,10 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
 - [x] CASE 4: Visualização do Mapa de Assentos por sessão
     - [x] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.
     - Todos os ingressos são grátis
-- [ ] CASE 5: Reservas e Bloqueios por sessão
-    - [ ] Ao selecionar um assento, o sistema deverá disparar um bloqueio temporário (exemplo, um limite de 10 minutos)
-    - [ ] Prevenir outros usuários de selecionar o mesmo assento durante o processo
-    - [ ] Observação: Candidatos Full-time devem implementar isso usando Redis; Trainees podem usar uma abordagem mais simples em nível de DB, se preferir.
+- [x] CASE 5: Reservas e Bloqueios por sessão
+    - [x] Ao selecionar um assento, o sistema deverá disparar um bloqueio temporário (exemplo, um limite de 10 minutos)
+    - [x] Prevenir outros usuários de selecionar o mesmo assento durante o processo
+    - [x] Observação: Candidatos Full-time devem implementar isso usando Redis; Trainees podem usar uma abordagem mais simples em nível de DB, se preferir.
 - [x] CASE 6: Pagamento e Geração de Ticket
     - [x] O sistema processa o pedido e transita a reserva de um cache temporário para um registro permanente no banco de dados (se for um candidato Full-time)
     - Aqui não existe o processo de pagamento. Todos os ingressos são grátis.

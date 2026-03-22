@@ -15,3 +15,5 @@ class IngressoResource (AbstractResource):
         
         res = self.repository.get_meus_ingressos(usuario)
         return jsonify(res)
+    
+    #TODO: Mover Confirmação de reserva para cá
