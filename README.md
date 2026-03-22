@@ -12,8 +12,8 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 - [x] 💽 [TC.3.1] Banco de Dados:
     - [x] DB Relacional (PostgreSQL de preferencia) - Vou usar o MySQL
     - [x] Garantir que o banco siga as melhores praticas, com atenção a normalização e otimização
-- [ ] 🔋 [TC.3.2] Caching & Scalability:
-    - [ ] Use estrategias de cache, por exemplo o Redis, para guardar sessões populares e disponibilizar um endpoint de alta performance sobre muita demanda
+- [x] 🔋 [TC.3.2] Caching & Scalability:
+    - [x] Use estrategias de cache, por exemplo o Redis, para guardar sessões populares e disponibilizar um endpoint de alta performance sobre muita demanda
 - [x] 📄 [TC.4.] Paginação:
     - [x] Endpoints de lista com paginação (Filmes, Sessões e Tickets do Usuário).
 - [ ] 🧪 [TC.5] Testes:

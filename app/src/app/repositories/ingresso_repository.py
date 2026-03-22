@@ -1,3 +1,4 @@
+import re
 import uuid
 import typing
 
@@ -44,6 +45,23 @@ class IngressoRepository (AbstractRepository [Ingresso]):
         
         return res
     
+    def get_assentos_pre_reservados(self, uuid_sessao: uuid.UUID):
+        res = []
+        keys = app_singleton.redis_cli.keys(f"s:{uuid_sessao}:a:*")
+
+        if not keys:
+            return res
+
+        for k in keys:
+            pattern = re.compile(r"a:([0-9]+)")
+            m = pattern.search(k.decode())
+
+            indice_assento = int(m.group(1))
+            res.append(indice_assento)
+        
+        return res
+
+    
     def key_reserva (self, uuid_sessao: uuid.UUID, assento: int):
         return f"s:{uuid_sessao}:a:{assento}"
 
@@ -78,9 +96,12 @@ class IngressoRepository (AbstractRepository [Ingresso]):
             raise Exception("Sessão não encontrada!")
         
         quant_assentos_max = sessao_filme.quant_assentos
+        
+        assentos_reservados = self.get_assentos_pre_reservados(uuid_sessao)
         assentos_comprados = [ ic.assento for ic in ingressos_comprados ]
         assentos_disponiveis = [ a for a in range(1, quant_assentos_max) if a not in assentos_comprados ]
 
+        res[StatusAssentoEnum.RESERVADO.name] = self.organizar_assentos(assentos_reservados)
         res[StatusAssentoEnum.COMPRADO.name] = self.organizar_assentos(assentos_comprados)
         res[StatusAssentoEnum.DISPONIVEL.name] = self.organizar_assentos(assentos_disponiveis)
         return res
