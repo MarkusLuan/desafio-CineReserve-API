@@ -3,12 +3,12 @@ import enum
 import uuid
 from typing import Type, TypeVar, Generic
 
-from ..exceptions import TipoInvalidoException, ParametroObrigatorioException
-from ..utils import validador_utils
+from ...exceptions import TipoInvalidoException, ParametroObrigatorioException
+from ...utils import validador_utils
 
 T = TypeVar("T")
 
-class DTOInput (Generic[T]):
+class DTOFilter (Generic[T]):
     chave: str
     tipo: Type[T]
     __valor: T

@@ -8,12 +8,15 @@ from .abstract_filter import AbstractFilter
 
 from ..sessao import Sessao
 from ..filme import Filme
-from ..dto_input import DTOInput
+from .dto_filter import DTOFilter
 
 class SessaoFilter (AbstractFilter):
-    uuid_filme = DTOInput("uuid_filme", uuid.UUID, is_obrigatorio=True)
-    dt_inicial = DTOInput("dt_inicial", datetime.datetime, None)
-    dt_final = DTOInput("dt_final", datetime.datetime, None)
+    def __init__(self, *args, **kwargs) -> None:
+        self.uuid_filme = DTOFilter("uuid_filme", uuid.UUID, is_obrigatorio=True)
+        self.dt_inicial = DTOFilter("dt_inicial", datetime.datetime, None)
+        self.dt_final = DTOFilter("dt_final", datetime.datetime, None)
+        
+        super().__init__(*args, **kwargs)
     
     def make_filter(self, query: Query) -> Query:
         query = query.filter(Filme.uuid == str(self.uuid_filme.valor))

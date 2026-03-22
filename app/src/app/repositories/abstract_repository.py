@@ -35,6 +35,7 @@ class AbstractRepository (ABC, Generic[T_MODEL]):
         for dto_filter_cls in self.dto_filters:
             dto_filter = dto_filter_cls(**kwargs)
             query = dto_filter.make_filter(query)
+            dto_filter.clear()
         
         return query.all()
     
