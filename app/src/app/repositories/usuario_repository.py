@@ -33,6 +33,7 @@ class UsuarioRepository (AbstractRepository [Usuario]):
         session = app_singleton.db.session
         query = session.query(self.model)
         usuario = query.filter(self.model.uuid == identity).first()
+        session.close()
 
         if usuario:
             usuario.senha = None

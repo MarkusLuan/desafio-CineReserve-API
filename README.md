@@ -3,7 +3,7 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 
 ## 📄 TECHNICAL REQUIREMENTS
 
-- [ ] ⚙️ [TC.1] Desenvolvimento da API:
+- [x] ⚙️ [TC.1] Desenvolvimento da API:
     - [x] Python 3
     - [x] Webframework (Django de Preferencia) - Vou usar o Flask
     - [x] Poetry (Desconheço, mas vamos para o desafio)
@@ -20,16 +20,16 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
     - [x] Envie seus unit tests
     - [ ] Garanta que tantos os casos funcionais quanto os extremos estejam cobertos
 - [ ] 📝 [TC.6] Documentação:
-    - [ ] Documentação da API usando Swagger ou Postman
-- [-] 🐳 [TC.7] Docker:
-    - [-] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
+    - [x] Documentação da API usando Swagger ou Postman
+- [x] 🐳 [TC.7] Docker:
+    - [x] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
 - [x] 🔧 [TC.8] Git:
     - [x] O projeto deve estar em um repositório publico
 
 ## 🌟 BONUS POINTS
 - [ ] 👮🏻 Advanced Security Features:
     - [ ] Implemente limitação de requisições nos endpoints da API para prevenir abuso e extração de dados
-    - [-] Proteja os endpoint usando as melhores práticas (Validação de inputs, prevenção de SQL Injection e proteção CSRF)
+    - [x] Proteja os endpoint usando as melhores práticas (Validação de inputs, prevenção de SQL Injection e proteção CSRF)
 - [ ] 🔁 Asynchronous Tasks:
     - [ ] Use Celery (ou agendador de tarefas similar) para gerenciar processos em segundo plano, auto liberação de filas e envio de e-mails de confirmação.
 - [x] 🚀 CI/CD:
@@ -52,10 +52,10 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - [ ] Ao selecionar um assento, o sistema deverá disparar um bloqueio temporário (exemplo, um limite de 10 minutos)
     - [ ] Prevenir outros usuários de selecionar o mesmo assento durante o processo
     - [ ] Observação: Candidatos Full-time devem implementar isso usando Redis; Trainees podem usar uma abordagem mais simples em nível de DB, se preferir.
-- [ ] CASE 6: Pagamento e Geração de Ticket
-    - [ ] O sistema processa o pedido e transita a reserva de um cache temporário para um registro permanente no banco de dados (se for um candidato Full-time)
+- [x] CASE 6: Pagamento e Geração de Ticket
+    - [x] O sistema processa o pedido e transita a reserva de um cache temporário para um registro permanente no banco de dados (se for um candidato Full-time)
     - Aqui não existe o processo de pagamento. Todos os ingressos são grátis.
-    - [ ] Um único ingresso digital é gerado e linkado à conta do usuário.
+    - [x] Um único ingresso digital é gerado e linkado à conta do usuário.
 - [ ] CASE 7: Portal de "Meus Ingressos"
-    - [ ] Usuários autenticados podem visualizar todos os seus ingressos que comprou
+    - [x] Usuários autenticados podem visualizar todos os seus ingressos que comprou
     - [ ] O portal deve permitir usuários de verem seus tickets ativos para os próximos filmes e o histórico completo de suas compras

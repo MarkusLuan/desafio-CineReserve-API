@@ -1,3 +1,5 @@
+import argparse
+
 from flask import Flask
 
 from .error_handler import ErrorHandler
@@ -35,12 +37,16 @@ def create_app(config_variante: str="dev"):
     return _app
 
 def main():
-    app = create_app()
+    paser = argparse.ArgumentParser(exit_on_error=False)
+    paser.add_argument("--config", default="dev")
+    config_object = paser.parse_known_args()[0].config
+
+    app = create_app(config_object)
 
     app.run(
         host="0.0.0.0",
-        port=82,
-        debug=True
+        port=app.config["PORT"],
+        debug=app.config["DEBUG"]
     )
 
 if __name__ == "__main__":

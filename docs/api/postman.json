@@ -1,78 +1,339 @@
 {
-	"info": {
-		"_postman_id": "eddf2242-4862-4859-832a-8b4c0e997753",
-		"name": "Desafio B2Bit - 2026.01 - Backend - CineReserve",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "10067182"
-	},
-	"item": [
-		{
-			"name": "Sessões",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&uuid_filme=a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6",
-					"protocol": "http",
-					"host": [
-						"{{host}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"api",
-						"sessoes"
-					],
-					"query": [
-						{
-							"key": "first_result",
-							"value": "0"
-						},
-						{
-							"key": "max_results",
-							"value": "200"
-						},
-						{
-							"key": "uuid_filme",
-							"value": "a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "host",
-			"value": "localhost"
-		},
-		{
-			"key": "port",
-			"value": "82"
-		}
-	]
+  "info": {
+    "_postman_id": "eddf2242-4862-4859-832a-8b4c0e997753",
+    "name": "Desafio B2Bit - 2026.01 - Backend - CineReserve",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10067182"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Cadastrar Usuário",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"dt_nascimento\": \"1997-02-19\",\r\n    \"email\": \"markus@teste.com\",\r\n    \"nome\": \"teste\",\r\n    \"senha\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/usuarios",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "usuarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fazer Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"markus@teste.com\",\r\n    \"senha\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/auth",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obter informações do login ativo",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDEzNzQ1NywianRpIjoiMmEyYzJlYjUtMGIwYy00NDdkLWIzOGMtMzQzZGUzYWQyZTY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDEzNzQ1NywiY3NyZiI6IjFkYmUzM2NjLTBkNjktNDVlMS1hMzRiLWVhYzk5ODU0MzM5MCIsImV4cCI6MTc3NDE0MTA1N30.1i649TFKAdGmXogIxi34hgjf3N2hpCpBWQZjZAWbEAk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/auth",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Assentos",
+      "item": [
+        {
+          "name": "Listar Assentos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "assentos",
+                "4246611c-284c-4319-82d6-f394097b30b1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Selecionar Assento",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1/1",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "assentos",
+                "4246611c-284c-4319-82d6-f394097b30b1",
+                "1"
+              ]
+            },
+            "description": "Ao selecionar o assento o sistema deixa em pré-reservar por 10 minutos"
+          },
+          "response": []
+        },
+        {
+          "name": "Finalizar reserva",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDE1MjM5NCwianRpIjoiNjRjYzQ5YmMtZTIwYi00ZTYwLWI4NTQtNzM3OTQ2Mjc2ODVmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDE1MjM5NCwiY3NyZiI6IjI0MzRkOTQ3LWY4NzktNDM0Mi04ZjY5LWZjNDdhNjUxNDQxYSIsImV4cCI6MTc3NDE1NTk5NH0.DdvxuEbDjXMbe9N5dky2P7b9WVdkj-XIYFi8bwHf9jM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1/2",
+              "protocol": "http",
+              "host": [
+                "{{host}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "api",
+                "assentos",
+                "4246611c-284c-4319-82d6-f394097b30b1",
+                "2"
+              ]
+            },
+            "description": "Ao selecionar o assento o sistema deixa em pré-reservar por 10 minutos"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sessões",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&uuid_filme=a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "api",
+            "sessoes"
+          ],
+          "query": [
+            {
+              "key": "first_result",
+              "value": "0"
+            },
+            {
+              "key": "max_results",
+              "value": "200"
+            },
+            {
+              "key": "uuid_filme",
+              "value": "a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6"
+            },
+            {
+              "key": "dt_inicial",
+              "value": "2026-01-12",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Filmes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/api/filmes/?first_result=0&max_results=5&genero=ACAO&ano_lancamento=2011",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "api",
+            "filmes",
+            ""
+          ],
+          "query": [
+            {
+              "key": "first_result",
+              "value": "0"
+            },
+            {
+              "key": "max_results",
+              "value": "5"
+            },
+            {
+              "key": "titulo",
+              "value": "Pirates of the Caribbean",
+              "disabled": true
+            },
+            {
+              "key": "genero",
+              "value": "ACAO"
+            },
+            {
+              "key": "ano_lancamento",
+              "value": "2011"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Meus Ingressos",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDE1NjcyNSwianRpIjoiZDU5MWIzZTctMTFkNS00NzMzLThlMzQtNzI0OGUyNDViMDI3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDE1NjcyNSwiY3NyZiI6IjY2ZTNjMDRkLTIzMWEtNDQxNy05YzIyLTZjZTAwOTU2MTBlYyIsImV4cCI6MTc3NDE2MDMyNX0.NXehClHCzZ2576JfGPaEjztFrkVFlBrwPj04tC91vKc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/api/meus_ingressos",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "api",
+            "meus_ingressos"
+          ],
+          "query": [
+            {
+              "key": "uuid_filme",
+              "value": "select",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    },
+    {
+      "key": "port",
+      "value": ""
+    }
+  ]
 }
