@@ -57,5 +57,5 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - Aqui não existe o processo de pagamento. Todos os ingressos são grátis.
     - [x] Um único ingresso digital é gerado e linkado à conta do usuário.
 - [ ] CASE 7: Portal de "Meus Ingressos"
-    - [ ] Usuários autenticados podem visualizar todos os seus ingressos que comprou
+    - [x] Usuários autenticados podem visualizar todos os seus ingressos que comprou
     - [ ] O portal deve permitir usuários de verem seus tickets ativos para os próximos filmes e o histórico completo de suas compras

@@ -3,7 +3,7 @@ import uuid
 from sqlalchemy import and_
 
 from .abstract_repository import AbstractRepository
-from ..models import Ingresso, Sessao
+from ..models import Ingresso, Sessao, Usuario
 from ..models.enums import StatusAssentoEnum
 from .. import app_singleton
 
@@ -12,6 +12,13 @@ class IngressoRepository (AbstractRepository [Ingresso]):
     dto_filters = [  ]
     is_can_insert = True
     is_paginate = True
+
+    def get_meus_ingressos(self, usuario: Usuario):
+        session = app_singleton.db.session
+        query = session.query(Ingresso)
+        query = query.join(Usuario)
+        query = query.filter(Usuario.uuid == usuario.uuid)
+        return query.all()
 
     def get_assentos(self, uuid_sessao: uuid.UUID):
         res = { k.name: [] for k in list(StatusAssentoEnum)}

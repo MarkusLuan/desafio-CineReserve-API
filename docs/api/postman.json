@@ -187,7 +187,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&dt_inicial=2026-01-12",
+          "raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&uuid_filme=a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6",
           "protocol": "http",
           "host": [
             "{{host}}"
@@ -208,13 +208,12 @@
             },
             {
               "key": "uuid_filme",
-              "value": "select",
-              "disabled": true
+              "value": "a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6"
             },
             {
               "key": "dt_inicial",
               "value": "2026-01-12",
-              "type": "text"
+              "disabled": true
             }
           ]
         }
@@ -227,7 +226,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{host}}:{{port}}/api/filmes/?first_result=0&max_results=5",
+          "raw": "http://{{host}}:{{port}}/api/filmes/?first_result=0&max_results=5&genero=ACAO&ano_lancamento=2011",
           "protocol": "http",
           "host": [
             "{{host}}"
@@ -254,12 +253,47 @@
             },
             {
               "key": "genero",
-              "value": "ACAO",
-              "disabled": true
+              "value": "ACAO"
             },
             {
               "key": "ano_lancamento",
-              "value": "2011",
+              "value": "2011"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Meus Ingressos",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDE1NjcyNSwianRpIjoiZDU5MWIzZTctMTFkNS00NzMzLThlMzQtNzI0OGUyNDViMDI3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDE1NjcyNSwiY3NyZiI6IjY2ZTNjMDRkLTIzMWEtNDQxNy05YzIyLTZjZTAwOTU2MTBlYyIsImV4cCI6MTc3NDE2MDMyNX0.NXehClHCzZ2576JfGPaEjztFrkVFlBrwPj04tC91vKc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{host}}:{{port}}/api/meus_ingressos",
+          "protocol": "http",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "api",
+            "meus_ingressos"
+          ],
+          "query": [
+            {
+              "key": "uuid_filme",
+              "value": "select",
               "disabled": true
             }
           ]
