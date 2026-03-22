@@ -4,11 +4,13 @@ import typing
 from sqlalchemy import and_
 
 from .abstract_repository import AbstractRepository
+from .usuario_repository import UsuarioRepository
 from ..models import Ingresso, Sessao, Usuario
 from ..models.enums import StatusAssentoEnum
 from .. import app_singleton
 
 class IngressoRepository (AbstractRepository [Ingresso]):
+    usuario_repository = UsuarioRepository()
     model = Ingresso
     dto_filters = [  ]
     is_can_insert = True
@@ -86,6 +88,11 @@ class IngressoRepository (AbstractRepository [Ingresso]):
     def is_assento_disponivel (self, uuid_sessao: uuid.UUID, indice_assento: int):
         if indice_assento < 1:
             return False
+        
+        reserva = app_singleton.redis_cli.get(self.key_reserva(uuid_sessao, indice_assento))
+        if reserva:
+            if str(reserva.decode()) != str(self.usuario_repository.get_logged_user().uuid):
+                return False
         
         session = app_singleton.db.session
         query = session.query(Ingresso)

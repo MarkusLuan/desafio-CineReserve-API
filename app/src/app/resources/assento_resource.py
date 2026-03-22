@@ -17,8 +17,6 @@ repository = IngressoRepository()
 usuario_repository = UsuarioRepository()
 sessao_repository = SessaoRepository()
 
-redis_cli = redis.Redis(host="localhost", port=6379, db=0)
-
 @resources.before_request
 @jwt.jwt_required()
 def before_request():
@@ -43,7 +41,7 @@ def selecionar_assento(uuid_sessao: uuid.UUID, indice_assento: int):
     if not sessao:
         return abort(404)
 
-    pre_reserva = redis_cli.set(repository.key_reserva(uuid_sessao, indice_assento), str(usuario.uuid), ex=10*60, nx=True)
+    pre_reserva = app_singleton.redis_cli.set(repository.key_reserva(uuid_sessao, indice_assento), str(usuario.uuid), ex=10*60, nx=True)
     if pre_reserva:
         return jsonify({
             "erro": False,
