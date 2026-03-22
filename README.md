@@ -45,8 +45,8 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
 - [x] CASE 3: Listar todas as sessões disponiveis para um filme especifico
     - Um usuário (autenticado ou não) poderá ver a lista de sessões disponiveis para um filme especifico
-- [ ] CASE 4: Visualização do Mapa de Assentos por sessão
-    - [ ] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.
+- [x] CASE 4: Visualização do Mapa de Assentos por sessão
+    - [x] O sistema deve distinguir entre assentos que estão disponiveis, reservados (temporariamente bloqueados) ou comprados.
     - Todos os ingressos são grátis
 - [ ] CASE 5: Reservas e Bloqueios por sessão
     - [ ] Ao selecionar um assento, o sistema deverá disparar um bloqueio temporário (exemplo, um limite de 10 minutos)

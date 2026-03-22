@@ -12,6 +12,9 @@
         {
           "name": "Cadastrar Usuário",
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "POST",
             "header": [],
             "body": {
@@ -41,6 +44,9 @@
         {
           "name": "Fazer Login",
           "request": {
+            "auth": {
+              "type": "noauth"
+            },
             "method": "POST",
             "header": [],
             "body": {
@@ -70,16 +76,6 @@
         {
           "name": "Obter informações do login ativo",
           "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDEzNzQ1NywianRpIjoiMmEyYzJlYjUtMGIwYy00NDdkLWIzOGMtMzQzZGUzYWQyZTY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDEzNzQ1NywiY3NyZiI6IjFkYmUzM2NjLTBkNjktNDVlMS1hMzRiLWVhYzk5ODU0MzM5MCIsImV4cCI6MTc3NDE0MTA1N30.1i649TFKAdGmXogIxi34hgjf3N2hpCpBWQZjZAWbEAk",
-                  "type": "string"
-                }
-              ]
-            },
             "method": "GET",
             "header": [],
             "url": {
@@ -108,7 +104,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1",
+              "raw": "http://{{host}}:{{port}}/api/assentos/{{UUID_SESSAO}}",
               "protocol": "http",
               "host": [
                 "{{host}}"
@@ -117,7 +113,7 @@
               "path": [
                 "api",
                 "assentos",
-                "4246611c-284c-4319-82d6-f394097b30b1"
+                "{{UUID_SESSAO}}"
               ]
             }
           },
@@ -129,7 +125,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1/1",
+              "raw": "http://{{host}}:{{port}}/api/assentos/{{UUID_SESSAO}}/1",
               "protocol": "http",
               "host": [
                 "{{host}}"
@@ -138,7 +134,7 @@
               "path": [
                 "api",
                 "assentos",
-                "4246611c-284c-4319-82d6-f394097b30b1",
+                "{{UUID_SESSAO}}",
                 "1"
               ]
             },
@@ -149,20 +145,10 @@
         {
           "name": "Finalizar reserva",
           "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDE1MjM5NCwianRpIjoiNjRjYzQ5YmMtZTIwYi00ZTYwLWI4NTQtNzM3OTQ2Mjc2ODVmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDE1MjM5NCwiY3NyZiI6IjI0MzRkOTQ3LWY4NzktNDM0Mi04ZjY5LWZjNDdhNjUxNDQxYSIsImV4cCI6MTc3NDE1NTk5NH0.DdvxuEbDjXMbe9N5dky2P7b9WVdkj-XIYFi8bwHf9jM",
-                  "type": "string"
-                }
-              ]
-            },
             "method": "POST",
             "header": [],
             "url": {
-              "raw": "http://{{host}}:{{port}}/api/assentos/4246611c-284c-4319-82d6-f394097b30b1/2",
+              "raw": "http://{{host}}:{{port}}/api/assentos/{{UUID_SESSAO}}/40",
               "protocol": "http",
               "host": [
                 "{{host}}"
@@ -171,8 +157,8 @@
               "path": [
                 "api",
                 "assentos",
-                "4246611c-284c-4319-82d6-f394097b30b1",
-                "2"
+                "{{UUID_SESSAO}}",
+                "40"
               ]
             },
             "description": "Ao selecionar o assento o sistema deixa em pré-reservar por 10 minutos"
@@ -190,7 +176,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{host}}:{{port}}/api/filmes/296e3140-ffef-4de8-9a7b-ae052ad2e45c/sessoes?first_result=0&max_results=200",
+          "raw": "http://{{host}}:{{port}}/api/filmes/{{UUID_FILME}}/sessoes?first_result=0&max_results=200",
           "protocol": "http",
           "host": [
             "{{host}}"
@@ -199,7 +185,7 @@
           "path": [
             "api",
             "filmes",
-            "296e3140-ffef-4de8-9a7b-ae052ad2e45c",
+            "{{UUID_FILME}}",
             "sessoes"
           ],
           "query": [
@@ -224,6 +210,9 @@
     {
       "name": "Filmes",
       "request": {
+        "auth": {
+          "type": "noauth"
+        },
         "method": "GET",
         "header": [],
         "url": {
@@ -268,16 +257,6 @@
     {
       "name": "Meus Ingressos",
       "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDE1NjcyNSwianRpIjoiZDU5MWIzZTctMTFkNS00NzMzLThlMzQtNzI0OGUyNDViMDI3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImExMzg5ZjA4LTQ1NjctNDBjOC04MDlkLTQ2NDFmYzg2NzYwNCIsIm5iZiI6MTc3NDE1NjcyNSwiY3NyZiI6IjY2ZTNjMDRkLTIzMWEtNDQxNy05YzIyLTZjZTAwOTU2MTBlYyIsImV4cCI6MTc3NDE2MDMyNX0.NXehClHCzZ2576JfGPaEjztFrkVFlBrwPj04tC91vKc",
-              "type": "string"
-            }
-          ]
-        },
         "method": "GET",
         "header": [],
         "url": {
@@ -303,6 +282,16 @@
       "response": []
     }
   ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{TOKEN}}",
+        "type": "string"
+      }
+    ]
+  },
   "event": [
     {
       "listen": "prerequest",
@@ -334,6 +323,18 @@
     },
     {
       "key": "port",
+      "value": ""
+    },
+    {
+      "key": "UUID_SESSAO",
+      "value": ""
+    },
+    {
+      "key": "UUID_FILME",
+      "value": ""
+    },
+    {
+      "key": "TOKEN",
       "value": ""
     }
   ]
