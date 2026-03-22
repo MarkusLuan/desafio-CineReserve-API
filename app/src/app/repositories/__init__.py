@@ -1,3 +1,4 @@
 from .filme_repository import FilmeRepository
 from .sessao_repository import SessaoRepository
 from .usuario_repository import UsuarioRepository
+from .ingresso_repository import IngressoRepository
