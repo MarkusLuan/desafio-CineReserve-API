@@ -13,17 +13,16 @@ services:
             - ./volumes/db:/var/lib/mysql
         networks: 
             - desafio_b2bit_network
-
-    # TODO: Descomentar ao finalizar o projeto
-    # desafio_b2bit_api:
-    #     build: "."
-    #     depends_on: 
-    #         - desafio_b2bit_db
-    #     container_name: desafio_b2bit_api
-    #     ports:
-    #         - "80:80"
-    #     networks: 
-    #         - desafio_b2bit_network
+    
+    desafio_b2bit_api:
+        build: "."
+        depends_on: 
+            - desafio_b2bit_db
+        container_name: desafio_b2bit_api
+        ports:
+            - "80:80"
+        networks: 
+            - desafio_b2bit_network
 
 networks: 
     desafio_b2bit_network:

@@ -21,8 +21,8 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
     - [ ] Garanta que tantos os casos funcionais quanto os extremos estejam cobertos
 - [ ] 📝 [TC.6] Documentação:
     - [x] Documentação da API usando Swagger ou Postman
-- [-] 🐳 [TC.7] Docker:
-    - [-] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
+- [x] 🐳 [TC.7] Docker:
+    - [x] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
 - [x] 🔧 [TC.8] Git:
     - [x] O projeto deve estar em um repositório publico
 

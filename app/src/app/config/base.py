@@ -16,3 +16,6 @@ DATABASE =  {
 ALLOWED_ORIGINS = [
     "http://localhost:5173"
 ]
+
+DEBUG = True
+PORT = 82
