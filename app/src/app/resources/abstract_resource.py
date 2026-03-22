@@ -6,6 +6,7 @@ from ..repositories.abstract_repository import AbstractRepository
 class AbstractResource (Rest.Resource):
     repository = AbstractRepository()
     methods = []
+    post_fields = []
 
     def get (self):
         args = request.args
@@ -13,7 +14,7 @@ class AbstractResource (Rest.Resource):
         return jsonify(res)
     
     def post (self):
-        return {}
+        raise NotImplementedError()
     
     def dispatch_request(self, *args, **kwargs):
         if not self.methods or (request.method not in self.methods):

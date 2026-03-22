@@ -1,3 +1,4 @@
 from .sql_injection_exception import SqlInjectionException
 from .tipo_invalido_exception import TipoInvalidoException
 from .parametro_obrigatorio_exception import ParametroObrigatorioException
+from .login_invalido_exception import LoginInvalidoException

@@ -7,24 +7,24 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
     - [x] Python 3
     - [x] Webframework (Django de Preferencia) - Vou usar o Flask
     - [x] Poetry (Desconheço, mas vamos para o desafio)
-- [ ] 🔐 [TC.2] Autenticação:
-    - [ ] JWT 
-- [ ] 💽 [TC.3.1] Banco de Dados:
+- [x] 🔐 [TC.2] Autenticação:
+    - [x] JWT 
+- [x] 💽 [TC.3.1] Banco de Dados:
     - [x] DB Relacional (PostgreSQL de preferencia) - Vou usar o MySQL
     - [x] Garantir que o banco siga as melhores praticas, com atenção a normalização e otimização
 - [ ] 🔋 [TC.3.2] Caching & Scalability:
     - [ ] Use estrategias de cache, por exemplo o Redis, para guardar sessões populares e disponibilizar um endpoint de alta performance sobre muita demanda
-- [ ] 📄 [TC.4.] Paginação:
-    - [ ] Endpoints de lista com paginação (Filmes, Sessões e Tickets do Usuário).
+- [x] 📄 [TC.4.] Paginação:
+    - [x] Endpoints de lista com paginação (Filmes, Sessões e Tickets do Usuário).
 - [ ] 🧪 [TC.5] Testes:
-    - [ ] Envie seus unit tests
+    - [x] Envie seus unit tests
     - [ ] Garanta que tantos os casos funcionais quanto os extremos estejam cobertos
 - [ ] 📝 [TC.6] Documentação:
     - [ ] Documentação da API usando Swagger ou Postman
-- [ ] 🐳 [TC.7] Docker:
-    - [ ] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
-- [ ] 🔧 [TC.8] Git:
-    - [ ] O projeto deve estar em um repositório publico
+- [-] 🐳 [TC.7] Docker:
+    - [-] Disponibilizar o DockerFile e DockerCompose ("Plug&Play")
+- [x] 🔧 [TC.8] Git:
+    - [x] O projeto deve estar em um repositório publico
 
 ## 🌟 BONUS POINTS
 - [ ] 👮🏻 Advanced Security Features:
@@ -38,9 +38,9 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
 ## 👨🏼‍🏫 USE CASES
 Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema chama-se "Cinépolis Natal". O software deverá usar as seguintes API's:
 
-- [ ] CASE 1: Registro e Login
-    - [ ] Usuarios devem ser capazes de se cadastrar através da API, fornecendo e-mail, usuário e senha
-    - [ ] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
+- [x] CASE 1: Registro e Login
+    - [x] Usuarios devem ser capazes de se cadastrar através da API, fornecendo e-mail, usuário e senha
+    - [x] O Sistema deve usar JWT para gerenciar as sessões de login e autorizar requisições protegidas
 - [x] CASE 2: Listar todos os filmes disponiveis
     - Um usuário (autenticado ou não) poderá ver a lista completa dos filmes disponiveis no cinema
 - [x] CASE 3: Listar todas as sessões disponiveis para um filme especifico
