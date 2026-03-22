@@ -8,12 +8,12 @@ class AbstractResource (Rest.Resource):
     methods = []
     post_fields = []
 
-    def get (self):
+    def get (self, *args, **kwargs):
         args = request.args
         res = self.repository.get(**args)
         return jsonify(res)
     
-    def post (self):
+    def post (self, *args, **kwargs):
         raise NotImplementedError()
     
     def dispatch_request(self, *args, **kwargs):

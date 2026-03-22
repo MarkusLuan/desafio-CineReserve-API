@@ -50,8 +50,6 @@ def reservar_assento(uuid_sessao: uuid.UUID, indice_assento: int):
         raise Exception ("Usuário inválido!")
     usuario_id = usuario.id
 
-    print("Cheguei")
-
     ingresso = Ingresso(
         dt_reserva = datetime.datetime.now().isoformat(),
         codigo = str(random.randint(1, 800000)),

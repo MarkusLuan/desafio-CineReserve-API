@@ -182,12 +182,15 @@
       ]
     },
     {
-      "name": "Sessões",
+      "name": "Listar Sessoes",
       "request": {
+        "auth": {
+          "type": "noauth"
+        },
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://{{host}}:{{port}}/api/sessoes?first_result=0&max_results=200&uuid_filme=a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6",
+          "raw": "http://{{host}}:{{port}}/api/filmes/296e3140-ffef-4de8-9a7b-ae052ad2e45c/sessoes?first_result=0&max_results=200",
           "protocol": "http",
           "host": [
             "{{host}}"
@@ -195,6 +198,8 @@
           "port": "{{port}}",
           "path": [
             "api",
+            "filmes",
+            "296e3140-ffef-4de8-9a7b-ae052ad2e45c",
             "sessoes"
           ],
           "query": [
@@ -205,10 +210,6 @@
             {
               "key": "max_results",
               "value": "200"
-            },
-            {
-              "key": "uuid_filme",
-              "value": "a0a7be14-6ba2-4352-b86d-5ec2e5c67aa6"
             },
             {
               "key": "dt_inicial",
