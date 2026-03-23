@@ -8,12 +8,14 @@ from .abstract_repository import AbstractRepository
 from .usuario_repository import UsuarioRepository
 from ..models import Ingresso, Sessao, Usuario
 from ..models.enums import StatusAssentoEnum
+from ..models.filters import IngressoFilter
 from .. import app_singleton
 
 class IngressoRepository (AbstractRepository [Ingresso]):
     usuario_repository = UsuarioRepository()
     model = Ingresso
-    dto_filters = [  ]
+    joins = [ Usuario ]
+    dto_filters = [ IngressoFilter ]
     is_can_insert = True
     is_paginate = True
 

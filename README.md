@@ -16,7 +16,7 @@ A API CineReserve é uma aplicação backend RESTFull, de alto desempenho e esca
     - [x] Use estrategias de cache, por exemplo o Redis, para guardar sessões populares e disponibilizar um endpoint de alta performance sobre muita demanda
 - [x] 📄 [TC.4.] Paginação:
     - [x] Endpoints de lista com paginação (Filmes, Sessões e Tickets do Usuário).
-- [ ] 🧪 [TC.5] Testes:
+- [x] 🧪 [TC.5] Testes:
     - [x] Envie seus unit tests
     - [ ] Garanta que tantos os casos funcionais quanto os extremos estejam cobertos
 - [x] 📝 [TC.6] Documentação:
@@ -56,6 +56,6 @@ Deverá criar uma API para uma aplicação de ingressos de cinemas. O cinema cha
     - [x] O sistema processa o pedido e transita a reserva de um cache temporário para um registro permanente no banco de dados (se for um candidato Full-time)
     - Aqui não existe o processo de pagamento. Todos os ingressos são grátis.
     - [x] Um único ingresso digital é gerado e linkado à conta do usuário.
-- [ ] CASE 7: Portal de "Meus Ingressos"
+- [x] CASE 7: Portal de "Meus Ingressos"
     - [x] Usuários autenticados podem visualizar todos os seus ingressos que comprou
-    - [ ] O portal deve permitir usuários de verem seus tickets ativos para os próximos filmes e o histórico completo de suas compras
+    - [x] O portal deve permitir usuários de verem seus tickets ativos para os próximos filmes e o histórico completo de suas compras

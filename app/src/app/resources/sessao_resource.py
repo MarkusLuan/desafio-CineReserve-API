@@ -10,7 +10,7 @@ class SessaoResource (AbstractResource):
     methods = ["GET"]
 
     def get(self, uuid_filme: uuid.UUID, *args, **kwargs):
-        args = request.args.__dict__
-        args["uuid_filme"] = uuid_filme
+        args = { k: v for k, v in request.args.items() }
+        args["uuid_filme"] = str(uuid_filme)
         res = self.repository.get(**args)
         return jsonify(res)
