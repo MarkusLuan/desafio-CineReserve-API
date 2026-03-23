@@ -30,8 +30,8 @@ class ErrorHandler:
         
         @app.errorhandler(HTTPException)
         def erro_http(e: HTTPException):
-            return __reportar_erro(e.description or "", e.code or 500)
+            return __reportar_erro(e.description or "", e.code or 422)
         
         @app.errorhandler(Exception)
         def erro_interno(e: Exception):
-            return __reportar_erro(str(e), 500)
+            return __reportar_erro(str(e), 422)

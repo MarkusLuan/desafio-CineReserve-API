@@ -23,6 +23,13 @@ services:
             - "80:80"
         networks: 
             - desafio_b2bit_network
+    
+    desafio_b2bit_cache:
+        image: redis:8.6
+        ports:
+            - "6379:6379"
+        networks:
+            - desafio_b2bit_network
 
 networks: 
     desafio_b2bit_network:

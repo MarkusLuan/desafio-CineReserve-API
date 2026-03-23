@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import request, jsonify
 import flask_jwt_extended as jwt
 
 from .abstract_resource import AbstractResource
@@ -12,6 +12,12 @@ class IngressoResource (AbstractResource):
     def get(self):
         usuario_repository = UsuarioRepository()
         usuario = usuario_repository.get_logged_user()
-        
-        res = self.repository.get_meus_ingressos(usuario)
+        if not usuario:
+            raise Exception ("Deve estar logado para esta operação!")
+
+        args = { k: v for k, v in request.args.items() }
+        args["uuid_usuario"] = str(usuario.uuid)
+        res = self.repository.get(**args)
         return jsonify(res)
+    
+    #TODO: Mover Confirmação de reserva para cá

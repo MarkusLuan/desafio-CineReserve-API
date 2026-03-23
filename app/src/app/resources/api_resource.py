@@ -14,6 +14,6 @@ resources.register_blueprint(AuthResource)
 
 api = Rest.Api(resources)
 api.add_resource(FilmeResource, "/filmes/")
-api.add_resource(SessaoResource, "/sessoes/")
+api.add_resource(SessaoResource, "/filmes/<uuid:uuid_filme>/sessoes/")
 api.add_resource(UsuarioResource, "/usuarios/")
 api.add_resource(IngressoResource, "/meus_ingressos/")
